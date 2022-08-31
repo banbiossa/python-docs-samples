@@ -14,6 +14,7 @@
 
 # [START eventarc_audit_storage_server]
 import os
+import json
 
 from flask import Flask, request
 
@@ -46,6 +47,11 @@ def index():
     print(dir(request))
     if hasattr(request, 'data'):
         print(request.data)
+    
+    d = json.loads(request.data)
+    print(d['bucket'])
+    print(d['name'])
+    print(f"gs://{d['bucket']}/{d['name']}")
 
     print(f"Detected change in Cloud Storage bucket: {bucket}")
     return (f"Detected change in Cloud Storage bucket: {bucket}", 200)
