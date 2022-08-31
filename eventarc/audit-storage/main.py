@@ -29,8 +29,15 @@ def index():
     # Example: "storage.googleapis.com/projects/_/buckets/my-bucket"
     bucket = request.headers.get('ce-subject')
 
-    print('requet', request)
+    print('request', request)
     print('request.headers', request.headers)
+    filename = bucket.split('/', 1)[1]
+    print('filename', filename)
+
+    source = request.headers.get('ce-source')
+    print('source', source)
+    bucket_name = source.split('/')[-1]
+    print('bucket_name', bucket_name)
 
     print(f"Detected change in Cloud Storage bucket: {bucket}")
     return (f"Detected change in Cloud Storage bucket: {bucket}", 200)
