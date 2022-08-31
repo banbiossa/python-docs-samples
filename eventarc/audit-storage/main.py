@@ -39,6 +39,9 @@ def index():
     bucket_name = source.split('/')[-1]
     print('bucket_name', bucket_name)
 
+    full_path = f"gs://{bucket_name}/{filename}"
+    print('full_path', full_path)
+
     print(f"Detected change in Cloud Storage bucket: {bucket}")
     return (f"Detected change in Cloud Storage bucket: {bucket}", 200)
 # [END eventarc_audit_storage_handler]
