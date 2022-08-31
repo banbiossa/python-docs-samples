@@ -30,6 +30,7 @@ def index():
     bucket = request.headers.get('ce-subject')
 
     print('request', request)
+    print('type(request.headers)', type(request.headers))
     print('request.headers', request.headers)
     filename = bucket.split('/', 1)[1]
     print('filename', filename)
