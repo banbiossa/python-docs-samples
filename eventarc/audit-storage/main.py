@@ -43,6 +43,10 @@ def index():
     full_path = f"gs://{bucket_name}/{filename}"
     print('full_path', full_path)
 
+    print(dir(request))
+    if hasattr(request, 'data'):
+        print(request.data)
+
     print(f"Detected change in Cloud Storage bucket: {bucket}")
     return (f"Detected change in Cloud Storage bucket: {bucket}", 200)
 # [END eventarc_audit_storage_handler]
